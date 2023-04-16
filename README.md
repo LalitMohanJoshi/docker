@@ -4,6 +4,8 @@ This repository contain node application deployed through Docker in vm instance.
 It contain all the necessary package to run docker app in docker environment.
 We have added docker compose to run multiple docker image using config file.
 
+This demo also contin the information of docker swarm , which is used to scale docker container in large environment.
+
 ## Installation
 
 Use the package manager [Docker](https://www.docker.com/) to install the dependencies.

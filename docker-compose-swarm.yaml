@@ -1,0 +1,44 @@
+version: "3.9"
+services:
+  redis-server:
+    image: "redis:alpine"
+    # container_name: "redis-app"
+    ports:
+      - "6379:6379"
+    networks:
+      - backend
+    deploy:
+      replicas: 1
+      # service restart policy
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+  web-server: 
+    # container_name: "web-app" 
+    image: "lalitdemo/node-app:latest"
+    ports:
+      - "3000:3000" 
+    volumes:
+      #  Named volumes
+      - webAppVolume:/var/www/html/app/public/
+    # depends_on:
+      # - redis-server 
+    networks:
+      - backend
+    environment:
+      - appName=nodeDockerApp
+    deploy:
+      replicas: 2
+      # service restart policy
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s 
+networks:
+  # frontend:
+  backend:
+volumes:
+  webAppVolume:
