@@ -2,7 +2,7 @@
 
 This repository contain node application deployed through Docker in vm instance.
 It contain all the necessary package to run docker app in docker environment.
-
+We have added docker compose to run multiple docker image using config file.
 
 ## Installation
 

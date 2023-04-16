@@ -30,6 +30,8 @@ git --version
 mkdir -p /var/www/html/
 chmod -R 777 /var/www/html/
 cd /var/www/html/ 
+git clone https://github.com/LalitMohanJoshi/docker.git
+
 # cd docker
 
 
